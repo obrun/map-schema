@@ -1,0 +1,23 @@
+#
+
+#
+# LICENSE:
+#  Copyright 2012 SwarmPoint LLC. Provided by SwarmPoint LLC as is and without warranty.
+#  License granted for internal commercial or private use, modification or translation.
+#  Distribution only under the same license. No right to use to offer a database service.
+#  Owen Brunette owen@beliefs.com +1-646-461-4401 owenbrunette.com
+#
+
+# To be run on the same machine as the mysql server
+
+LD_LIBRARY_PATH="$LD_LIBRARY_PATH:~/lib:"; export PATH
+
+# Set proxy.global.config.map_schema_default with MAP_SCHEMA_MODEL=
+
+# REPLACE my_model_schema WITH THE NAME OF YOUR MODEL SCHEMA
+MAP_SCHEMA_MODEL=my_model_schema
+
+$HOME/bin/mysql-proxy --proxy-lua-script=${HOME}/local/map-schema/map-schema.lua
+
+# Logging level option can be added: least to most verbose
+#--log-level= error | warning | info | message | debug
